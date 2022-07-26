@@ -45,3 +45,11 @@ def gcd(A, B):
             r = b % r
             b = prevr
         return prevr
+
+
+def modifiedremainder(value, base):
+    remainder = value % base
+    if remainder < (base / 2):
+        return remainder
+    else:
+        return remainder - base
