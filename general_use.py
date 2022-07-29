@@ -53,3 +53,28 @@ def modifiedremainder(value, base):
         return remainder
     else:
         return remainder - base
+
+
+def isqrt(n):
+    """
+    Integer square root of n. Formally speaking, this is the floor of the square root of n.
+    """
+    guess = n // len('{0:b}'.format(n))
+    low, high = 0, n
+    while not guess ** 2 <= n < (guess + 1) ** 2:
+        if guess ** 2 < n:
+            low += 1
+        else:
+            high -= 1
+        guess = (high - low) // 2
+    return guess
+
+
+def factorbase(N):
+    N = int(N)
+    nums = [num for num in range(2, N + 1)]
+    fbase = []
+    while len(nums) > 0:
+        fbase.append(nums[0])
+        nums = [num for num in nums if num % nums[0] != 0]
+    return fbase
